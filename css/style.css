@@ -1,0 +1,39 @@
+
+
+:root {
+  --bg: #ffffff;
+  --text: #807a7a;
+  --primary: #1e90ff;
+  --accent: #ff6b6b;
+  --radius: 12px;
+
+  --title-size: clamp(2rem, 6vw, 4rem);
+  --subtitle-size: clamp(1rem, 3vw, 1.5rem);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero-title {
+  font-size: var(--title-size);
+  margin: 0;
+}
+
+.hero-title span {
+  color: var(--primary);
+}
+
+.hero-desc {
+  font-size: var(--subtitle-size);
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  opacity: 0.9;
+}
