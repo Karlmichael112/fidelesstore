@@ -1,39 +1,327 @@
-
-
-:root {
-  --bg: #ffffff;
-  --text: #807a7a;
-  --primary: #1e90ff;
-  --accent: #ff6b6b;
-  --radius: 12px;
-
-  --title-size: clamp(2rem, 6vw, 4rem);
-  --subtitle-size: clamp(1rem, 3vw, 1.5rem);
+/* ==========================================================================
+   1. Global Reset & Page Styling
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f3f6fa;
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. Header & Navigation Bar
+   ========================================================================== */
 .header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem;
 }
 
+.logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header .buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Header Buttons */
+.header .btn-primary {
+  background-color: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 0.45rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header .btn-primary:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.header .btn-secondary {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 0.45rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: all 0.2s ease;
+}
+
+.header .btn-secondary:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* ==========================================================================
+   3. Hero Banner Section
+   ========================================================================== */
 .hero {
-  text-align: center;
-  padding: 5rem 2rem;
+  max-width: 1100px;
+  margin: 1rem auto 2.5rem auto;
+  padding: 0 1.5rem;
 }
 
-.hero-title {
-  font-size: var(--title-size);
-  margin: 0;
+.hero.container {
+  background: linear-gradient(135deg, #111827 0%, #1e293b 50%, #1e3a8a 100%);
+  border-radius: 20px;
+  padding: 3.5rem 3rem;
+  color: #ffffff;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-.hero-title span {
-  color: var(--primary);
+.hero h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
 }
 
-.hero-desc {
-  font-size: var(--subtitle-size);
+.hero .highlight {
+  color: #f59e0b; /* Golden accent text */
+}
+
+.hero p {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
   max-width: 600px;
-  margin: 1rem auto 2rem;
-  opacity: 0.9;
+}
+
+.hero .btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hero .btn-secondary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. Menu / Filter Pills Section
+   ========================================================================== */
+.menu-section {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.menu h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.menu-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.menu-nav a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+  background-color: #e2e8f0;
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.menu-nav a:hover {
+  background-color: #cbd5e1;
+  color: #0f172a;
+}
+
+/* Highlight "All" filter pill */
+.menu-nav a[href="#all"] {
+  background-color: #dbeafe;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   5. Main Section & Product Cards
+   ========================================================================== */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem 1.5rem;
+}
+
+.section-title,
+.main h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Base Card Style */
+.product-card,
+.rtx5050,
+.ram,
+.case {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover,
+.rtx5050:hover,
+.ram:hover,
+.case:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Images inside Cards */
+.product-grid img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.85rem;
+  background-color: #f1f5f9;
+}
+
+/* Product Titles & Descriptions */
+.product-grid h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.product-grid p {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  flex-grow: 1; /* Pushes button to bottom */
+}
+
+/* Card Buttons */
+.product-grid .btn-primary {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 9999px;
+  border: none;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-grid .btn-primary:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   6. Card Badges & States (Sale, Added, Low Stock)
+   ========================================================================== */
+
+/* Card 1 (RTX 5050): Dashed Red Sale Border & Badge */
+.rtx5050 {
+  border: 1.5px dashed #f87171;
+}
+
+.rtx5050::before {
+  content: "Sale";
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: #ffe4e6;
+  color: #e11d48;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  z-index: 2;
+}
+
+/* Card 2 (RAM): Green Active "Added" Button State */
+.ram .btn-primary {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.ram .btn-primary:hover {
+  background-color: #059669;
+}
+
+/* Card 3 (Case): Low Stock Badge & Warning Notice */
+.case::before {
+  content: "Low Stock";
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: #ffedd5;
+  color: #c2410c;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  z-index: 2;
+}
+
+.case::after {
+  content: "Hurry! Few left in stock.";
+  position: absolute;
+  bottom: 0.35rem;
+  right: 1rem;
+  font-size: 0.65rem;
+  color: #ef4444;
 }
